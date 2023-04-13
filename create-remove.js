@@ -8,15 +8,29 @@ add.addEventListener("click", async () => {
         const url = data.message; // URL of new dog image
 
         /*--------------- Get breed (Hint: Parse from URL) ---------------- */
-        // Your code here
+         const breed = url.split('/')[4]
 
         /*------------ Create new dog card with the url above ------------- */
         /* (use the HTML structure for the current dog image in the index.html
             file to create a new image with the url) */
         // Your code here
+           const newDog =  document.createElement('li')
+           let fig = document.createElement("figure")
+           let dogImg = document.createElement("img")
+           dogImg.src = url
+           let dogBreed = document.createElement("figcaption")
+           dogBreed.innerText = breed
 
-        /* Add the new dog card as a child to the ul in the .gallery element */
-        // Your code here
+           fig.appendChild(dogImg)
+           fig.appendChild(dogBreed)
+           newDog.appendChild(fig)
+
+           let addDog = document.getElementsByTagName("ul")[0]
+           addDog.appendChild(newDog)
+
+
+
+
 
     } catch (e) {
         console.log("Couldn't fetch dog :(")
@@ -27,17 +41,17 @@ add.addEventListener("click", async () => {
 const removeFirst = document.getElementById("remove-first");
 removeFirst.addEventListener("click", () => {
     /*-------------------- Select the first dog card --------------------- */
-    // Your code here
+    const firstDog = document.querySelector(".gallery li").remove()
+
 
     /*-------------------- Remove the first dog card --------------------- */
-    // Your code here
 });
 
 /************************** REMOVE LAST DOG BUTTON ***************************/
 const removeLast = document.getElementById("remove-last");
 removeLast.addEventListener("click", () => {
     /*-------------------- Select the last dog card ----------------------- */
-    // Your code here
+    const lastDog = document.querySelector(".gallery li:last-child").remove()
 
     /*-------------------- Remove the last dog card ----------------------- */
     // Your code here
